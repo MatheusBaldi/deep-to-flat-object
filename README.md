@@ -5,6 +5,8 @@ Transforms a deep object into a flat object, assigning each value to a field nam
 - It is possíble to determine a prefix to all field names through the `options.pathPrefix`;
 - By default, if the field value is an object with a prototype, it is considered a final value and the recursion stops, preserving the prototype. It is possible to disable this behaviour by setting `options.preservePrototype` to `false`. In the example below, the `ObjectId` objects have their prototype preserved;
 
+This project was developed to solve a problem where an object representing the MongoDB ObjectId would lose its prototype after the object being flattened, which caused some unexpected behaviors. It was solved by manually setting the prototype to the value of the MongoDB.ObjectId field. So, before you try this, I recommend checking this other very interesting project called [flat](https://www.npmjs.com/package/flat). That may be better suited for most cases.
+
 ## Example:
 #### Input
 ```js
